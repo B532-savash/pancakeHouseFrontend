@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-left">
+    <a href="menu.html?cat=all" class="nav-item">All Menus</a>
+    <a href="menu.html?cat=breakfast" class="nav-item">Breakfast</a>
+    <a href="menu.html?cat=lunch" class="nav-item">Lunch</a>
+    <a href="menu.html?cat=supper" class="nav-item">Dinner</a>
+    <a href="menu.html?cat=vegetarian" class="nav-item">Vegetarian</a>
+  </div>
+  <a href="login.html" class="nav-login">Login</a>
+</nav>
+<main>
+  <div class="register-container">
+    <form class="register-card" id="registerForm">
+      <h2 class="register-title">Sign Up</h2>
+      <p class="register-desc">Please fill in this form to create an account.</p>
+      <label>Email</label>
+      <input type="email" placeholder="Enter Email" class="register-input" name="email" required>
+      <label>Username</label>
+      <input type="text" placeholder="Enter Username" class="register-input" name="username" required>
+      <label>Password</label>
+      <input type="password" placeholder="Enter Password" class="register-input" name="password" required>
+      <p class="register-terms">
+        By creating an account you agree to our <a href="#">Terms & Privacy</a>.
+      </p>
+      <div class="register-actions">
+        <button type="button" class="register-cancel" onclick="window.location='login.html'">Cancel</button>
+        <button type="submit" class="register-submit">Sign Up</button>
+      </div>
+    </form>
+  </div>
+</main>
+<script>
+  document.getElementById('registerForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      email: form.email.value,
+      username: form.username.value,
+      password: form.password.value
+    };
+    try {
+      const response = await fetch('http://localhost:8080/merger/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (response.status === 200) {
+        window.location = 'login.html';
+      } else {
+        alert('Registration failed.');
+      }
+    } catch (err) {
+      alert('Network error.');
+    }
+  });
+</script>
+</body>
+</html>

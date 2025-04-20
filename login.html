@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-left">
+    <a href="menu.html?cat=all" class="nav-item">All Menus</a>
+    <a href="menu.html?cat=breakfast" class="nav-item">Breakfast</a>
+    <a href="menu.html?cat=lunch" class="nav-item">Lunch</a>
+    <a href="menu.html?cat=supper" class="nav-item">Dinner</a>
+    <a href="menu.html?cat=vegetarian" class="nav-item">Vegetarian</a>
+  </div>
+  <a href="login.html" class="nav-login active">Login</a>
+</nav>
+<main>
+  <div class="login-container">
+    <div class="login-card">
+      <h2 class="login-title">Login with Social Media or Manually</h2>
+      <div class="login-content">
+        <div class="login-social">
+          <button class="github-btn">Login with Github</button>
+          <button class="google-btn">Login with Google</button>
+        </div>
+        <div class="login-divider">
+          <span class="divider-circle">or</span>
+        </div>
+        <form class="login-form" onsubmit="return false;">
+          <input type="text" placeholder="Username" class="login-input" required>
+          <input type="password" placeholder="Password" class="login-input" required>
+          <button type="submit" class="login-submit">Login</button>
+        </form>
+      </div>
+      <div class="login-footer">
+        <button class="footer-link" onclick="window.location='register.html'">Sign up</button>
+        <button class="footer-link" style="float:right;">Forgot password?</button>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>
