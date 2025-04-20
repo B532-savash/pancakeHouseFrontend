@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 async function fetchMenuItems(category) {
-    let url = "http://localhost:8080/merger";
+    let url = "https://pancakehouse.onrender.com/merger";
     if (category !== "all") {
         url += `/${category}`;
     }
